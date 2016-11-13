@@ -53,6 +53,9 @@ func writeEnvironment(w io.Writer) error {
 			log.Println(err)
 		}
 	}
+
+	buffer.WriteString(fmt.Sprintf("DEFAULT_IFACE=%s\n", defaultIfaceName))
+
 	interfaces, err := net.Interfaces()
 	if err != nil {
 		return err
